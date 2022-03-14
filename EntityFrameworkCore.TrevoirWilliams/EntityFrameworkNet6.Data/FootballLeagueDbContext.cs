@@ -7,7 +7,7 @@ namespace EntityFrameworkNet6.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=FootballLeague_EFCore");
+            optionsBuilder.UseSqlServer("Data Source=MELO-HOME\\SQLEXPRESS;User=sa;Password=L1on8Zebra;Initial Catalog=FootballLeague_EFCore");
         }
 
         public DbSet<Team> Teams { get; set; }
