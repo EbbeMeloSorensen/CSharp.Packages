@@ -1,6 +1,6 @@
 ﻿using BookLibrary;
 using Microsoft.EntityFrameworkCore;
-using System;
+using System.Linq;
 
 namespace ConsoleApp
 {
@@ -59,6 +59,13 @@ namespace ConsoleApp
                 }
 
                 Console.WriteLine();
+            }
+
+            var recentBooks = from b in db.Books where b.PublicationYear > 1900 select b;
+
+            foreach (var book in recentBooks.Include(b => b.Author))
+            {
+                Console.WriteLine($"{book} is by {book.Author}");
             }
         }
     }
