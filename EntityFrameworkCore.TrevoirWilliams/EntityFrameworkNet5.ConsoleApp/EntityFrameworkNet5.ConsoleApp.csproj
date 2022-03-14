@@ -5,4 +5,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EntityFrameworkNet5.Data\EntityFrameworkNet5.Data.csproj" />
+    <ProjectReference Include="..\EntityFrameworkNet5.Domain\EntityFrameworkNet5.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
