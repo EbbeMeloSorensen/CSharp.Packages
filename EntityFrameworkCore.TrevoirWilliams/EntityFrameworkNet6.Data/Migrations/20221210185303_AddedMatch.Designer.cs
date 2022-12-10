@@ -4,6 +4,7 @@ using EntityFrameworkNet6.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFrameworkNet6.Data.Migrations
 {
     [DbContext(typeof(FootballLeagueDbContext))]
-    partial class FootballLeagueDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221210185303_AddedMatch")]
+    partial class AddedMatch
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,30 +23,6 @@ namespace EntityFrameworkNet6.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("EntityFrameworkNet6.Domain.Coach", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("TeamId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TeamId")
-                        .IsUnique()
-                        .HasFilter("[TeamId] IS NOT NULL");
-
-                    b.ToTable("Coaches");
-                });
 
             modelBuilder.Entity("EntityFrameworkNet6.Domain.League", b =>
                 {
@@ -111,15 +89,6 @@ namespace EntityFrameworkNet6.Data.Migrations
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("EntityFrameworkNet6.Domain.Coach", b =>
-                {
-                    b.HasOne("EntityFrameworkNet6.Domain.Team", "Team")
-                        .WithOne("Coach")
-                        .HasForeignKey("EntityFrameworkNet6.Domain.Coach", "TeamId");
-
-                    b.Navigation("Team");
-                });
-
             modelBuilder.Entity("EntityFrameworkNet6.Domain.Match", b =>
                 {
                     b.HasOne("EntityFrameworkNet6.Domain.Team", "AwayTeam")
@@ -158,9 +127,6 @@ namespace EntityFrameworkNet6.Data.Migrations
             modelBuilder.Entity("EntityFrameworkNet6.Domain.Team", b =>
                 {
                     b.Navigation("AwayMatches");
-
-                    b.Navigation("Coach")
-                        .IsRequired();
 
                     b.Navigation("HomeMatches");
                 });
