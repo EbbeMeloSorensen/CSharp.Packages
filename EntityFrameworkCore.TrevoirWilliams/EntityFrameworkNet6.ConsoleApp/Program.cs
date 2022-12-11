@@ -19,9 +19,42 @@ class Program
         //await QueryFilters();
         //await AdditionalExecutionMethods();
 
-        //AddCats();
+        //await AddCats();
+        //await AddDogs();
 
-        // Retrieve 
+        // Retrieve Cats
+        // Bemærk lige: Denne query hiver ALLE katte med op, OGSÅ specialiseringer, dvs persians kommer med,
+        // og det er vel at mærke INKL DERES FELTER, dvs polymorfisme lader til at virke out of the box, og
+        // det endda når vi kører med TPT (Table per Type) for katte
+        // Den laver i øvrigt denne SQL Query:
+        //
+        // SELECT[c].[Id], [c].[Legs], [p].[Color], CASE
+        // WHEN[p].[Id] IS NOT NULL THEN N'Persian'
+        // END AS[Discriminator]
+        // FROM[Cats] AS[c]
+        // LEFT JOIN[Persians] AS[p] ON[c].[Id] = [p].[Id]
+
+        var cats = await context.Cats.ToListAsync();
+        foreach (var cat in cats)
+        {
+            Console.WriteLine(cat.ToString());
+        }
+
+        // Det her virker på samme måde, selv om det er lavet med TPH (Table Per Hierarchy)
+        // Det ser faktisk ud som om at man kan abstrahere fra om det er TPT, TPH eller TPC (Table pr concrete type).
+        // Det hedder sig dog, at der er performancemæssige implikationer, hvilket lyder plausibelt, idet den SQL, der
+        // genereres i tilfældet med hundende (TPH) er således:
+        //
+        // SELECT[d].[Id], [d].[Discriminator], [d].[Legs], [d].[Height]
+        // FROM[Dogs] AS[d]
+        //
+        // Bemærk, at man kører uden join her
+
+        var dogs = await context.Dogs.ToListAsync();
+        foreach (var dog in dogs)
+        {
+            Console.WriteLine(dog.ToString());
+        }
 
         Console.WriteLine("done");
     }
@@ -41,6 +74,24 @@ class Program
 
         context.Cats.Add(cat1);
         context.Persians.Add(persian1);
+        await context.SaveChangesAsync();
+    }
+
+    static async Task AddDogs()
+    {
+        var dog1 = new Dog
+        {
+            Legs = 4
+        };
+
+        var bulldog1 = new BullDog()
+        {
+            Legs = 4,
+            Height = 3
+        };
+
+        context.Dogs.Add(dog1);
+        context.BullDogs.Add(bulldog1);
         await context.SaveChangesAsync();
     }
 

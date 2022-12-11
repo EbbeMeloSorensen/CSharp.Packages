@@ -13,9 +13,16 @@ namespace EntityFrameworkNet6.Data
             // hvor man faktisk ser det sql, der genereres!
             // (disse 2 instruktioner bør kun være med under udvikling)
 
+            const string connectionStringMeloHome =
+                "Data Source=MELO-HOME\\SQLEXPRESS;User=sa;Password=L1on8Zebra;Initial Catalog=FootballLeague_EFCore;Trust Server Certificate=true";
+
+            const string connectionStringDocker =
+                "Data Source=localhost,1400;User=sa;Password=L1on8Zebra;Initial Catalog=FootballLeague_EFCore;Trust Server Certificate=true";
+
+            var connectionString = connectionStringDocker;
+
             optionsBuilder
-                .UseSqlServer(
-                    "Data Source=MELO-HOME\\SQLEXPRESS;User=sa;Password=L1on8Zebra;Initial Catalog=FootballLeague_EFCore;Trust Server Certificate=true")
+                .UseSqlServer(connectionString)
                 .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
                 .EnableSensitiveDataLogging();
         }
