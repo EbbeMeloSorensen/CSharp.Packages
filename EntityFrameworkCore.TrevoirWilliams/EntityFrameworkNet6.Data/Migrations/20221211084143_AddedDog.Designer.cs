@@ -4,6 +4,7 @@ using EntityFrameworkNet6.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFrameworkNet6.Data.Migrations
 {
     [DbContext(typeof(FootballLeagueDbContext))]
-    partial class FootballLeagueDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221211084143_AddedDog")]
+    partial class AddedDog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,14 +33,9 @@ namespace EntityFrameworkNet6.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Legs")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Cats");
-
-                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("EntityFrameworkNet6.Domain.Coach", b =>
@@ -71,9 +69,6 @@ namespace EntityFrameworkNet6.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Legs")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -145,16 +140,6 @@ namespace EntityFrameworkNet6.Data.Migrations
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("EntityFrameworkNet6.Domain.Persian", b =>
-                {
-                    b.HasBaseType("EntityFrameworkNet6.Domain.Cat");
-
-                    b.Property<int>("Color")
-                        .HasColumnType("int");
-
-                    b.ToTable("Persians");
-                });
-
             modelBuilder.Entity("EntityFrameworkNet6.Domain.Coach", b =>
                 {
                     b.HasOne("EntityFrameworkNet6.Domain.Team", "Team")
@@ -192,15 +177,6 @@ namespace EntityFrameworkNet6.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("League");
-                });
-
-            modelBuilder.Entity("EntityFrameworkNet6.Domain.Persian", b =>
-                {
-                    b.HasOne("EntityFrameworkNet6.Domain.Cat", null)
-                        .WithOne()
-                        .HasForeignKey("EntityFrameworkNet6.Domain.Persian", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("EntityFrameworkNet6.Domain.League", b =>

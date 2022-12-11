@@ -15,7 +15,7 @@ namespace EntityFrameworkNet6.Data
 
             optionsBuilder
                 .UseSqlServer(
-                    "Data Source=MELO-HOME\\SQLEXPRESS;User=sa;Password=L1on8Zebra;Initial Catalog=FootballLeague_EFCore")
+                    "Data Source=MELO-HOME\\SQLEXPRESS;User=sa;Password=L1on8Zebra;Initial Catalog=FootballLeague_EFCore;Trust Server Certificate=true")
                 .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
                 .EnableSensitiveDataLogging();
         }
@@ -43,6 +43,8 @@ namespace EntityFrameworkNet6.Data
                 .IsRequired()
                 //.OnDelete(DeleteBehavior.Cascade);
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Cat>().UseTptMappingStrategy();
         }
 
         public DbSet<Team> Teams { get; set; }
@@ -50,5 +52,7 @@ namespace EntityFrameworkNet6.Data
         public DbSet<Match> Matches { get; set; }
         public DbSet<Coach> Coaches { get; set; }
         public DbSet<Cat> Cats { get; set; }
+        public DbSet<Persian> Persians { get; set; }
+        public DbSet<Dog> Dogs { get; set; }
     }
 }
