@@ -3,17 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkNet5.ConsoleApp", "EntityFrameworkNet5.ConsoleApp\EntityFrameworkNet5.ConsoleApp.csproj", "{25322BD4-9C41-4135-AD52-5C321CE9F570}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkNet6.Domain", "EntityFrameworkNet6.Domain\EntityFrameworkNet6.Domain.csproj", "{04EA67EA-B3C7-4C42-8A8B-8A36EEC49C18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkNet5.Data", "EntityFrameworkNet5.Data\EntityFrameworkNet5.Data.csproj", "{1B9DDAC8-5070-4F8D-9FE2-300E53166F66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkNet6.Data", "EntityFrameworkNet6.Data\EntityFrameworkNet6.Data.csproj", "{6CC49131-09E6-440D-8DAA-D2B023AA5E15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkNet5.Domain", "EntityFrameworkNet5.Domain\EntityFrameworkNet5.Domain.csproj", "{2EB9789B-0DF7-405A-BBF3-901141F5E5DB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkNet6.Domain", "EntityFrameworkNet6.Domain\EntityFrameworkNet6.Domain.csproj", "{04EA67EA-B3C7-4C42-8A8B-8A36EEC49C18}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkNet6.Data", "EntityFrameworkNet6.Data\EntityFrameworkNet6.Data.csproj", "{6CC49131-09E6-440D-8DAA-D2B023AA5E15}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkNet6.ConsoleApp", "EntityFrameworkNet6.ConsoleApp\EntityFrameworkNet6.ConsoleApp.csproj", "{2668A7B0-9010-4571-AD6A-9A3410D3ED9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkNet6.ConsoleApp", "EntityFrameworkNet6.ConsoleApp\EntityFrameworkNet6.ConsoleApp.csproj", "{2668A7B0-9010-4571-AD6A-9A3410D3ED9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,18 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{25322BD4-9C41-4135-AD52-5C321CE9F570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25322BD4-9C41-4135-AD52-5C321CE9F570}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25322BD4-9C41-4135-AD52-5C321CE9F570}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25322BD4-9C41-4135-AD52-5C321CE9F570}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B9DDAC8-5070-4F8D-9FE2-300E53166F66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B9DDAC8-5070-4F8D-9FE2-300E53166F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B9DDAC8-5070-4F8D-9FE2-300E53166F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B9DDAC8-5070-4F8D-9FE2-300E53166F66}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2EB9789B-0DF7-405A-BBF3-901141F5E5DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2EB9789B-0DF7-405A-BBF3-901141F5E5DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2EB9789B-0DF7-405A-BBF3-901141F5E5DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2EB9789B-0DF7-405A-BBF3-901141F5E5DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{04EA67EA-B3C7-4C42-8A8B-8A36EEC49C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04EA67EA-B3C7-4C42-8A8B-8A36EEC49C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04EA67EA-B3C7-4C42-8A8B-8A36EEC49C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
