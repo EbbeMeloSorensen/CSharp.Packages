@@ -1,4 +1,6 @@
-﻿using EntityFrameworkNet6.Domain;
+﻿using EntityFrameworkNet6.Domain.TPH;
+using EntityFrameworkNet6.Domain.TPT;
+using EntityFrameworkNet6.Domain.Trevor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 

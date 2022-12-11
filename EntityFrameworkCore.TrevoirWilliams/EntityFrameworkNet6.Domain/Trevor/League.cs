@@ -1,4 +1,4 @@
-﻿namespace EntityFrameworkNet6.Domain;
+﻿namespace EntityFrameworkNet6.Domain.Trevor;
 
 public class League : BaseDomainObject
 {
