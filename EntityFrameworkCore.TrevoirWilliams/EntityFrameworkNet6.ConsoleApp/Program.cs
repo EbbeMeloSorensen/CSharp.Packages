@@ -17,9 +17,31 @@ class Program
 
         //await SimpleSelectQuery();
         //await QueryFilters();
-        await AdditionalExecutionMethods();
+        //await AdditionalExecutionMethods();
+
+        //AddCats();
+
+        // Retrieve 
 
         Console.WriteLine("done");
+    }
+
+    static async Task AddCats()
+    {
+        var cat1 = new Cat
+        {
+            Legs = 4
+        };
+
+        var persian1 = new Persian
+        {
+            Legs = 4,
+            Color = 2
+        };
+
+        context.Cats.Add(cat1);
+        context.Persians.Add(persian1);
+        await context.SaveChangesAsync();
     }
 
     static async Task AddNewLeague()

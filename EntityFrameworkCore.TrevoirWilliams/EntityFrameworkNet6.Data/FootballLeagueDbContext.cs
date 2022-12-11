@@ -45,14 +45,18 @@ namespace EntityFrameworkNet6.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Cat>().UseTptMappingStrategy();
+            modelBuilder.Entity<Dog>().UseTphMappingStrategy();
         }
 
         public DbSet<Team> Teams { get; set; }
         public DbSet<League> Leagues { get; set; }
         public DbSet<Match> Matches { get; set; }
         public DbSet<Coach> Coaches { get; set; }
+
         public DbSet<Cat> Cats { get; set; }
         public DbSet<Persian> Persians { get; set; }
+
         public DbSet<Dog> Dogs { get; set; }
+        public DbSet<BullDog> BullDogs { get; set; }
     }
 }
