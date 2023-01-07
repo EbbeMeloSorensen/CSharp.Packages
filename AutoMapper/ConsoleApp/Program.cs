@@ -26,13 +26,17 @@ namespace MyApp // Note: actual namespace depends on the project name.
             var dtoOrder = mapper.Map<OrderDto>(order);
             Console.WriteLine($"{dtoOrder.Name} (property from automapped object)");
 
-            var animal = new Animal { Legs = 2 };
-            var dtoAnimal = mapper.Map<AnimalDto>(animal);
-            Console.WriteLine($"{dtoAnimal.Legs} (property from automapped object)");
+            var animals = new List<Animal>
+            {
+                new Animal{ Legs = 2 },
+                new Cat{ Legs = 4, Name = "Garfield"} 
+            };
 
-            var cat = new Cat { Legs = 4, Name = "Garfield" };
-            var dtoCat = mapper.Map<CatDto>(cat);
-            Console.WriteLine($"{dtoCat.Legs}, {dtoCat.Name} (property from automapped object)");
+            animals.ForEach(a =>
+            {
+                var mapped = mapper.Map(a, a.GetType(), typeof(AnimalDto));
+                Console.WriteLine(mapped.ToString());
+            });
         }
     }
 }
