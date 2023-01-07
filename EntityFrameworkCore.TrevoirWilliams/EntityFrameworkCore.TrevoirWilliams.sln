@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkNet6.Data", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkNet6.ConsoleApp", "EntityFrameworkNet6.ConsoleApp\EntityFrameworkNet6.ConsoleApp.csproj", "{2668A7B0-9010-4571-AD6A-9A3410D3ED9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO", "IO\IO.csproj", "{533C11D7-871A-4CB2-9945-0507E9517C9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2668A7B0-9010-4571-AD6A-9A3410D3ED9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2668A7B0-9010-4571-AD6A-9A3410D3ED9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2668A7B0-9010-4571-AD6A-9A3410D3ED9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{533C11D7-871A-4CB2-9945-0507E9517C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{533C11D7-871A-4CB2-9945-0507E9517C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{533C11D7-871A-4CB2-9945-0507E9517C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{533C11D7-871A-4CB2-9945-0507E9517C9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
